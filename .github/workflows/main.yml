@@ -41,7 +41,7 @@ jobs:
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: ${{steps.sign_app.outputs.signedReleaseFile}}
+          filename: ${{ github.workspace }}/build/Android/release.aab
           folderId: ${{ secrets.folderId }}
           name: "Займ на карту.aab"
           overwrite: "true" # optional boolean
