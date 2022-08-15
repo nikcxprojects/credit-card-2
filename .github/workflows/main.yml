@@ -26,7 +26,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: release.aab
-          path: app/build/outputs/bundle/release/app-release.aab
+          path: app/build/outputs/bundle/release/
 
       - name: Upload to google drive
         uses: adityak74/google-drive-upload-git-action@v0.2
