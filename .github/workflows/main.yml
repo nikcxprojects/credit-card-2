@@ -4,7 +4,7 @@ on: workflow_dispatch
 jobs:
     sendTelegramNotify:
       runs-on: ubuntu-latest
-      needs: Compile_AAB
+      needs: Deploy_AAB
       name: Send Telegram Notify
       steps: 
          - name: send telegram message
