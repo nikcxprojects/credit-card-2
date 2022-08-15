@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "849729835337",
+    "project_id": "vavada-r2-d2",
+    "storage_bucket": "vavada-r2-d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849729835337:android:ac604013046811a6368a98",
+        "android_client_info": {
+          "package_name": "com.zaymon.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849729835337-br7e53dm1mgrg6bnb16hpddk7ke49h45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_DvKxb8VJHvgeBg_2k2Lt32Y95q144JU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849729835337-br7e53dm1mgrg6bnb16hpddk7ke49h45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

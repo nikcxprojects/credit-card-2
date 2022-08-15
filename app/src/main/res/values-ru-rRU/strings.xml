@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Vavada</string>
+
+    <string name="splash_name">Загрузка</string>
+
+    <string name="image_chooser">File Chooser</string>
+
+    <string name="No_internet">No internet connection!</string>
+    <string name="No_internet_info">Try doing the following:</string>
+    <string name="No_internet_info_1"> - turn off airplane mode</string>
+    <string name="No_internet_info_2"> - check network signal strength</string>
+    <string name="No_internet_info_3"> - turn on Wi-fi or mobile Internet</string>
+
+    <!--                                            -->
+
+
+</resources>
