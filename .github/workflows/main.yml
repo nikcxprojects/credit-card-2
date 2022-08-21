@@ -58,11 +58,11 @@ jobs:
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
           
-      - name: Upload to google drive APK
+      - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: steps.download.outputs.download-path/${{ secrets.APP_NAME }}.zip
+          filename: ${{steps.download.outputs.download-path}}
           folderId: ${{ secrets.folderId }}
           name: ${{ secrets.APP_NAME }}.zip
           overwrite: "true" # optional boolean
