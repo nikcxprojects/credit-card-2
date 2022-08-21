@@ -62,7 +62,7 @@ jobs:
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: ${{steps.download.outputs.download-path}}
+          filename: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
           folderId: ${{ secrets.folderId }}
           name: ${{ secrets.APP_NAME }}.zip
           overwrite: "true" # optional boolean
