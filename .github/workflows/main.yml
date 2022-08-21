@@ -43,7 +43,7 @@ jobs:
 
     DeployToDrive:
       runs-on: ubuntu-latest
-      needs: [Compile_APK, Compile_AAB]
+      needs: [Archiving]
       name: Deploy to Google Drive
       steps:
       
