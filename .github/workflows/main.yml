@@ -9,7 +9,7 @@ jobs:
         - uses: actions/checkout@v2
         - uses: vimtor/action-zip@v1
           with:
-            files: app/build/outputs/apk/debug/, app/build/outputs/bundle/release/
+            files: app/build/outputs/apk/debug/${{ secrets.APP_NAME }}.apk, app/build/outputs/bundle/release/${{ secrets.APP_NAME }}.aab
             dest: ${{ secrets.APP_NAME }}.zip
             
         - uses: actions/upload-artifact@v1
