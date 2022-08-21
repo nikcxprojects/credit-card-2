@@ -55,9 +55,7 @@ jobs:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
               message: ✅ ${{ secrets.APP_NAME }} https://drive.google.com/drive/u/7/folders/${{ secrets.folderId }}
-              document: |
-                        './app/src/main/res/drawable-ru/icon.png'
-                        #'${{ github.workspace }}/${{ secrets.APP_NAME }}.zip'
+              document: '${{ github.workspace }}/app/src/main/res/drawable-ru/icon.png'
 
     DeployToDrive:
       runs-on: ubuntu-latest
