@@ -55,7 +55,7 @@ jobs:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
               #message: ✅ ${{ secrets.APP_NAME }} https://drive.google.com/drive/u/7/folders/${{ secrets.folderId }}
-              document: 'home/runner/work/credit-card-2/credit-card-2/${{ secrets.APP_NAME }}.zip'
+              document: '${{steps.download.outputs.download-path}}'
 
     #DeployToDrive:
       #runs-on: ubuntu-latest
