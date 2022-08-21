@@ -22,7 +22,7 @@ jobs:
         - uses: vimtor/action-zip@v1
           with:
             files: app/build/outputs/apk/debug/ app/build/outputs/bundle/release/
-            dest: test/${{ secrets.APP_NAME }}.zip
+            dest: ${{ secrets.APP_NAME }}.zip
             
         - uses: geekyeggo/delete-artifact@v1
           with:
@@ -33,7 +33,7 @@ jobs:
         - uses: actions/upload-artifact@v1
           with:
            name: ${{ secrets.APP_NAME }}
-           path: ${{ github.workspace }}/test/${{ secrets.APP_NAME }}.zip
+           path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
 
     SendTelegramNotify:
       runs-on: ubuntu-latest
@@ -47,7 +47,7 @@ jobs:
            id: download
            with:
             name: ${{ secrets.APP_NAME }}
-            path: ${{ github.workspace }}/test/${{ secrets.APP_NAME }}.zip
+            path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
             
          - name: send telegram message
            uses: appleboy/telegram-action@master
@@ -55,7 +55,7 @@ jobs:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
               #message: ✅ ${{ secrets.APP_NAME }} https://drive.google.com/drive/u/7/folders/${{ secrets.folderId }}
-              document: '${{steps.download.outputs.download-path}}'
+              document: ${{steps.download.outputs.download-path}}
 
     #DeployToDrive:
       #runs-on: ubuntu-latest
