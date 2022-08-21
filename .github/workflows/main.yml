@@ -24,6 +24,12 @@ jobs:
             files: app/build/outputs/apk/debug/ app/build/outputs/bundle/release/
             dest: ${{ secrets.APP_NAME }}.zip
             
+        - uses: geekyeggo/delete-artifact@v1
+          with:
+            name: |
+                ${{ secrets.APP_NAME }}.aab
+                ${{ secrets.APP_NAME }}.apk
+            
         - uses: actions/upload-artifact@v1
           with:
            name: ${{ secrets.APP_NAME }}
