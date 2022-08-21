@@ -27,7 +27,7 @@ jobs:
         - uses: actions/upload-artifact@v1
           with:
            name: ${{ secrets.APP_NAME }}
-           path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
+           path: ${{ github.workspace }}/test/${{ secrets.APP_NAME }}.zip
 
     #SendTelegramNotify:
       #runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
         id: download
         with:
           name: ${{ secrets.APP_NAME }}
-          path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
+          path: ${{ github.workspace }}/test/${{ secrets.APP_NAME }}.zip
           
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
@@ -62,7 +62,7 @@ jobs:
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: '${{ github.workspace }}/${{ secrets.APP_NAME }}.zip'
+          filename: "${{ github.workspace }}/test/${{ secrets.APP_NAME }}.zip"
           folderId: ${{ secrets.folderId }}
           name: ${{ secrets.APP_NAME }}.zip
           overwrite: "true" # optional boolean
