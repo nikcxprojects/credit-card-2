@@ -22,12 +22,11 @@ jobs:
         - uses: vimtor/action-zip@v1
           with:
             files: app/build/outputs/apk/debug/ app/build/outputs/bundle/release/
-            recursive: false
             dest: ${{ secrets.APP_NAME }}.zip
             
         - uses: actions/upload-artifact@v1
           with:
-           name: ${{ secrets.APP_NAME }} artifacts
+           name: ${{ secrets.APP_NAME }}
            path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
 
     #sendTelegramNotify:
