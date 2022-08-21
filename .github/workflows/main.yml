@@ -3,7 +3,7 @@ on: workflow_dispatch
 
 jobs:
 
-    zip-files:
+    Archiving:
       runs-on: ubuntu-latest
       needs: [Compile_APK, Compile_AAB]
       steps:
@@ -29,7 +29,7 @@ jobs:
            name: ${{ secrets.APP_NAME }}
            path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
 
-    #sendTelegramNotify:
+    #SendTelegramNotify:
       #runs-on: ubuntu-latest
       #needs: DeployToDrive
       #name: Send Telegram Notify
@@ -41,42 +41,28 @@ jobs:
               #token: ${{ secrets.TELEGRAM_TOKEN }}
               #message: ✅ ${{ secrets.APP_NAME }} https://drive.google.com/drive/u/7/folders/${{ secrets.folderId }}
 
-    #DeployToDrive:
-      #runs-on: ubuntu-latest
-      #needs: [Compile_APK, Compile_AAB]
-      #name: Deploy to Google Drive
-      #steps:
+    DeployToDrive:
+      runs-on: ubuntu-latest
+      needs: [Compile_APK, Compile_AAB]
+      name: Deploy to Google Drive
+      steps:
       
-      #- name: Checkout code
-        #uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
           
-      #- uses: actions/download-artifact@v2
-        #with:
-          #name: ${{ secrets.APP_NAME }}.apk
-          #path: app/build/outputs/apk/debug/
+      - uses: actions/download-artifact@v2
+        with:
+          name: ${{ secrets.APP_NAME }}
+          path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
           
-      #- name: Upload to google drive APK
-        #uses: adityak74/google-drive-upload-git-action@v0.2
-        #with:
-          #credentials: ${{ secrets.credentials }}
-          #filename: "app/build/outputs/apk/debug/app-debug.apk"
-          #folderId: ${{ secrets.folderId }}
-          #name: ${{ secrets.APP_NAME }}.apk
-          #overwrite: "true" # optional boolean
-          
-      #- uses: actions/download-artifact@v2
-        #with:
-          #name: ${{ secrets.APP_NAME }}.aab
-          #path: app/build/outputs/bundle/release/
-          
-      #- name: Upload to google drive AAB
-        #uses: adityak74/google-drive-upload-git-action@v0.2
-        #with:
-          #credentials: ${{ secrets.credentials }}
-          #filename: "app/build/outputs/bundle/release/app-release.aab"
-          #folderId: ${{ secrets.folderId }}
-          #name: ${{ secrets.APP_NAME }}.aab
-          #overwrite: "true" # optional boolean
+      - name: Upload to google drive APK
+        uses: adityak74/google-drive-upload-git-action@v0.2
+        with:
+          credentials: ${{ secrets.credentials }}
+          filename: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
+          folderId: ${{ secrets.folderId }}
+          name: ${{ secrets.APP_NAME }}.zip
+          overwrite: "true" # optional boolean
                 
     Compile_APK:
       runs-on: ubuntu-latest
