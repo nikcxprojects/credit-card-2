@@ -13,10 +13,16 @@ jobs:
           with:
              name: ${{ secrets.APP_NAME }}.apk
              path: app/build/outputs/apk/debug/
+             
+        - uses: actions/download-artifact@v2
+          with:
+             name: ${{ secrets.APP_NAME }}.aab
+             path: app/build/outputs/bundle/release/
           
         - uses: vimtor/action-zip@v1
           with:
-            files: /app/build/outputs/apk/debug/ ${{ secrets.APP_NAME }}.apk
+            files: /app/build/outputs/
+            recursive: false
             dest: ${{ secrets.APP_NAME }}.zip
             
         - uses: actions/upload-artifact@v1
