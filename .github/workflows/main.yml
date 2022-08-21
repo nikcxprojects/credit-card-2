@@ -21,7 +21,7 @@ jobs:
           
         - uses: vimtor/action-zip@v1
           with:
-            files: /app/build/outputs/
+            files: app/build/outputs/apk/debug/ app/build/outputs/bundle/release/
             recursive: false
             dest: ${{ secrets.APP_NAME }}.zip
             
