@@ -57,7 +57,7 @@ jobs:
               #message: ✅ ${{ secrets.APP_NAME }} https://drive.google.com/drive/u/7/folders/${{ secrets.folderId }}
               document: |
                         './app/src/main/res/drawable-ru/icon.png'
-                        '${{ github.workspace }}/${{ secrets.APP_NAME }}.zip'
+                        #'${{ github.workspace }}/${{ secrets.APP_NAME }}.zip'
 
     DeployToDrive:
       runs-on: ubuntu-latest
