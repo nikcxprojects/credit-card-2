@@ -9,14 +9,14 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         
-        #- uses: actions/download-artifact@v2
-          #with:
-             #name: ${{ secrets.APP_NAME }}.apk
-             #path: app/build/outputs/apk/debug/
+        - uses: actions/download-artifact@v2
+          with:
+             name: ${{ secrets.APP_NAME }}.apk
+             path: app/build/outputs/apk/debug/
           
         - uses: vimtor/action-zip@v1
           with:
-            files: /app/build/outputs/apk/debug/
+            files: /app/build/outputs/apk/debug/${{ secrets.APP_NAME }}.apk
             dest: ${{ secrets.APP_NAME }}.zip
             
         - uses: actions/upload-artifact@v1
