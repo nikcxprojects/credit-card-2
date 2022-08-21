@@ -62,7 +62,7 @@ jobs:
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: home/runner/work/credit-card-2/credit-card-2/${{ secrets.APP_NAME }}.zip
+          filename: "${{steps.download.outputs.download-path}}"
           folderId: ${{ secrets.folderId }}
           name: ${{ secrets.APP_NAME }}.zip
           overwrite: "true" # optional boolean
