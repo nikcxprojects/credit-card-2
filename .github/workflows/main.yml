@@ -55,6 +55,10 @@ jobs:
           name: ${{ secrets.APP_NAME }}
           path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
           
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: path/to/artifact
+          
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
           
