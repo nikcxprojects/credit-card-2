@@ -22,7 +22,7 @@ jobs:
         - uses: vimtor/action-zip@v1
           with:
             files: app/build/outputs/apk/debug/ app/build/outputs/bundle/release/
-            dest: test.zip
+            dest: project_folder/test.zip
             #dest: ${{ secrets.APP_NAME }}.zip
             
         - uses: geekyeggo/delete-artifact@v1
@@ -34,7 +34,7 @@ jobs:
         - uses: actions/upload-artifact@v1
           with:
            name: ${{ secrets.APP_NAME }}
-           path: ${{ github.workspace }}/test.zip
+           path: ${{ github.workspace }}/project_folder/test.zip
            #path: ${{ github.workspace }}/${{ secrets.APP_NAME }}.zip
 
     #SendTelegramNotify:
@@ -71,7 +71,7 @@ jobs:
         id: download
         with:
           name: ${{ secrets.APP_NAME }}
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }}/project_folder
           
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
