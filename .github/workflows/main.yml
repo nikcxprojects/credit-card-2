@@ -28,7 +28,7 @@ jobs:
           with:
             name: |
                 ${{ secrets.APP_NAME }}.apk
-                #${{ secrets.APP_NAME }}.aab
+                ${{ secrets.APP_NAME }}.aab
             
         - uses: actions/upload-artifact@v1
           with:
