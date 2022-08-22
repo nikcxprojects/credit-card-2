@@ -71,7 +71,7 @@ jobs:
         id: download
         with:
           name: ${{ secrets.APP_NAME }}
-          path: ${{ github.workspace }}/test.zip
+          path: ${{ github.workspace }}
           
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
